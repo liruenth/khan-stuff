@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.line {
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+.line > div {
+  float: left;
+}
+
+.line > div > table {
+  display: table-cell;
+  text-align: center;
+}
