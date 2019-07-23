@@ -20,7 +20,7 @@ class Card extends React.Component {
       return (
         <div>
             <div className='card' onClick = {this.click}>
-                {this.state.displayed ? 
+                {this.state.displayed || this.props.flipped ? 
                     <h1 className='largeCharacter'>{this.state.character}</h1> 
                 :
                     <table>

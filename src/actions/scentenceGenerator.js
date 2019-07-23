@@ -1,6 +1,6 @@
-let verbs = ["ran", "walked", "roared", "screamed", "pattered", "is shaking", "was yawning", "lied", "will eat", "swallows", "kicks", "hugs", "tests", "killed", "hunted"];
-let adjectives = ["quick", "shaky", "quiet", "small", "large", "big", "tiny", "insignificant", "silly", "boring", "rude", "benevolent", "majestic", "mighty", "great", "amazing", "talented", "incredible", "wonderful", "valuable", "loved", "good", "wise", "worthy", "brave", "real", "pretty", "beautiful", "bold", "tough"];
-let adverbs = ["quickly", "shakily", "quiveringly", "quietly", "roudily", "softly", "fiercly", "loudly", "gently", "roughly", "angrily", "mean spiritedly", "mightily"];
+let verbs = ["ran", "walked", "roared", "jumps", "screamed", "jogs", "pattered", "is shaking", "was yawning", "lied", "will eat", "swallows", "kicks", "hugs", "tests", "killed", "hunted"];
+let adjectives = ["quick", "shaky", "joyful", "quiet", "small", "large", "big", "tiny", "insignificant", "silly", "boring", "rude", "benevolent", "majestic", "mighty", "great", "amazing", "talented", "incredible", "wonderful", "valuable", "loved", "good", "wise", "worthy", "brave", "real", "pretty", "beautiful", "bold", "tough"];
+let adverbs = ["quickly", "shakily", "quiveringly", "jitteringly", "quietly", "roudily", "softly", "fiercly", "loudly", "gently", "roughly", "angrily", "mean spiritedly", "mightily"];
 let prepositions = ["at", "by", "next to", "beside", "against", "above", "below", "beneath", "aboard", "on", "with", "without", "within"];
 let nouns = ["dog", "cat", "bird", "dragon", "queen", "cheetah", "lion", "ox", "zebra", "eagle", "dragon", "teenager", "parent", "cow", "yak", "donkey", "ogre", "song", "tune", "ball", "map", "earth", "sun", "apple", "babboon", "gorrilla", "fox", "shepherd", "coyote"];
 let articles = ["a", "the"];

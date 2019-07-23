@@ -10,6 +10,7 @@ class FlashCards extends React.Component {
         super(props);
         this.state = {
             cards: [],
+            allFlipped: false,
         }
     };
 
@@ -20,8 +21,15 @@ class FlashCards extends React.Component {
         console.log(cards);
         this.setState({
             cards,
+            allFlipped: false,
         });
         console.log(this.state.cards);
+    };
+
+    flipAll = () => {
+        this.setState({
+            allFlipped: !this.state.allFlipped,
+        })
     };
 
     render(props) {
@@ -29,12 +37,13 @@ class FlashCards extends React.Component {
           <div className="App">
             <header className="App-header">
                 <button onClick={this.loadCards}><h2>Generate Scentence</h2></button>
+                <button onClick={this.flipAll}><h2>Flip All</h2></button>
             </header>
             <div className="line">
                 {
                     this.state.cards.map(card => {
                         num++;
-                        return <Card key={num}dots={card.dots} character={card.character} />
+                        return <Card flipped={this.state.allFlipped} key={num}dots={card.dots} character={card.character} />
                     })
                 }
             </div>
