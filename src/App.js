@@ -1,5 +1,6 @@
 import React from 'react';
 import FlashCards from './components/FlashCards.js';
+import MorsePage from './pages/morsePage.js'
 import Home from './pages/home';
 import Header from './components/header';
 import {
@@ -24,7 +25,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/braille" component={FlashCards}/>
-            <Route path="/morse" component={FlashCards}/>
+            <Route path="/morse" component={MorsePage}/>
             <Route path="/sudoku" component={FlashCards}/>
           </Switch>
         </div>
