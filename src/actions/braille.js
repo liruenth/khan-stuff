@@ -69,9 +69,9 @@ function characterToBraille(character) {
     }
 };
 
-function scentenceToBraille(scentence) {
+function sentenceToBraille(sentence) {
     let brailleForm = [];
-    scentence.forEach(word => {
+    sentence.forEach(word => {
         for(let i = 0; i < word.length; i++) {
             brailleForm.push({character: word[i], dots: characterToBraille(word[i])});
         };
@@ -80,4 +80,4 @@ function scentenceToBraille(scentence) {
     return brailleForm;
 };
 
-export default scentenceToBraille;
+export default sentenceToBraille;

@@ -5,7 +5,7 @@ let prepositions = ["at", "by", "next to", "beside", "against", "above", "below"
 let nouns = ["dog", "cat", "bird", "dragon", "queen", "cheetah", "lion", "ox", "zebra", "eagle", "dragon", "teenager", "parent", "cow", "yak", "donkey", "ogre", "song", "tune", "ball", "map", "earth", "sun", "apple", "babboon", "gorrilla", "fox", "shepherd", "coyote"];
 let articles = ["a", "the"];
 let conjunctions = ["because" , "since", "it came to pass that", "now we see that", "now behold", "verily verily"];
-let scentence = [];
+let Sentence = [];
 
 function getRand(max) {
     return Math.floor(Math.random() * max); 
@@ -76,31 +76,31 @@ function getVerbPhrase(s, afterNoun) {
 };
 
 
-function generateScentence() {
-    scentence = [];
+function generateSentence() {
+    Sentence = [];
     var hasNoun= false;
         
     if (addElement()) {
         hasNoun = true;
-        getSubjectPhrase(scentence);
+        getSubjectPhrase(Sentence);
         while(addElement()) {
-            scentence.push(addElement() ? "and" : "or");
-            getSubjectPhrase(scentence);
+            Sentence.push(addElement() ? "and" : "or");
+            getSubjectPhrase(Sentence);
         }
     }
     
     var loop;
     do {
         loop = addElement();
-        getVerbPhrase(scentence, hasNoun);
+        getVerbPhrase(Sentence, hasNoun);
         if(addElement()) {
-            getObjectPhrase(scentence, true);
+            getObjectPhrase(Sentence, true);
         }
         if (loop) {
-            scentence.push(addElement() ? "and" : "or");   
+            Sentence.push(addElement() ? "and" : "or");   
         }
     } while(loop);
-    return scentence;
+    return Sentence;
 }
 
-export default generateScentence;
+export default generateSentence;

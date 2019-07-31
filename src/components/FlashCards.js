@@ -1,8 +1,8 @@
 import React from 'react';
 import './../App.css';
 import Card from './Card.js';
-import generateScentence from '../actions/scentenceGenerator.js';
-import scentenceToBraille from '../actions/braille.js';
+import generateSentence from '../actions/sentenceGenerator.js';
+import sentenceToBraille from '../actions/braille.js';
 let num = 0;
 
 class FlashCards extends React.Component {
@@ -15,9 +15,9 @@ class FlashCards extends React.Component {
     };
 
     loadCards = () => {
-        let scentence = generateScentence();
-        console.log(scentence);
-        let cards = scentenceToBraille(scentence);
+        let sentence = generateSentence();
+        console.log(sentence);
+        let cards = sentenceToBraille(sentence);
         console.log(cards);
         this.setState({
             cards,
@@ -36,7 +36,7 @@ class FlashCards extends React.Component {
         return (
           <div className="App">
             <header className="App-header">
-                <button onClick={this.loadCards}><h2>Generate Scentence</h2></button>
+                <button onClick={this.loadCards}><h2>Generate Sentence</h2></button>
                 <button onClick={this.flipAll}><h2>Flip All</h2></button>
             </header>
             <div className="line">
