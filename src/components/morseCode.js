@@ -1,6 +1,12 @@
 import React from 'react';
 import './../styles/Code.css';
 
+/*
+For sound my plan is
+stacatto = 0.5 for the rest after each dot and dash
+convert binary to length of note using formula x = x * 2 + 1
+*/
+
 class MorseCode extends React.Component {
     constructor(props) {
         super(props);

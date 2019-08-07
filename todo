@@ -1,0 +1,6 @@
+Convert morse sentence to audio format
+
+^ in such a way that can play the sound while highlighting the correct caracter
+
+Sound customization for each note / sentence
+    - Can set note for each dot or dash

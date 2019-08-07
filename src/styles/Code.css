@@ -1,4 +1,4 @@
-div {
+.code div {
     float: left;
     margin: 5px;
 }
@@ -30,4 +30,10 @@ div {
 .endPartLetter {
     width: 20px;
     height: 20px;
+}
+
+.largeCharacter {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
 }
