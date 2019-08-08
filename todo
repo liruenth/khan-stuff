@@ -4,3 +4,13 @@ Convert morse sentence to audio format
 
 Sound customization for each note / sentence
     - Can set note for each dot or dash
+
+
+Notes
+Each dot, dash, or break has to be its own object that can be in an array
+let codeSegment = () => {
+    type: 0, 1, 2,  //display purposes
+    length: 1, 2, 3, 6,
+    note: default | note (ie A3),
+    sequence: new Sequence(ac, tempo, [`${note} ${length}`])
+}
