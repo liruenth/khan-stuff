@@ -1,42 +1,49 @@
+let note = 'C3';
+let dot = 1;
+let dash = 3;
+let spaceNote = '-'
+let spaceLen = 6;
+let endLetterLen = 2;
+
 let Morse = {
-    a: [0,1],
-    b: [1,0,0,0],
-    c: [1,0,1,0],
-    d: [1,0,0],
-    e: [0],
-    f: [0,0,1,0],
-    g: [1,1,0],
-    h: [0,0,0,0],
-    i: [0,0],
-    j: [0,1,1,1],
-    k: [1,0,1],
-    l: [0,1,0,0],
-    m: [1,1],
-    n: [1,0],
-    o: [1,1,1],
-    p: [0,1,1,0],
-    q: [1,1,0,1],
-    r: [0,1,0],
-    s: [0,0,0],
-    t: [1],
-    u: [0,0,1],
-    v: [0,0,0,1],
-    w: [0,1,1],
-    x: [1,0,0,1],
-    y: [1,0,1,1],
-    z: [1,1,0,0],
-    one: [0,1,1,1,1],
-    two: [0,0,1,1,1],
-    three: [0,0,0,1,1],
-    four: [0,0,0,0,1],
-    five: [0,0,0,0,0],
-    six: [1,0,0,0,0],
-    seven: [1,1,0,0,0],
-    eight: [1,1,1,0,0],
-    nine: [1,1,1,1,0],
-    zero: [1,1,1,1,1],
-    space: ['space'],
-    endLetter: ['endLetter']
+    a: [{note, len: dot}, {note, len: dash}],
+    b: [{note, len: dash}, {note, len: dot}, {note, len: dot}, {note, len: dot}],
+    c: [{note, len: dash}, {note, len: dot}, {note, len: dash}, {note, len: dot}],
+    d: [{note, len: dash}, {note, len: dot}, {note, len: dot}],
+    e: [{note, len: dot}],
+    f: [{note, len: dot}, {note, len: dot}, {note, len: dash}, {note, len: dot}],
+    g: [{note, len: dash}, {note, len: dash}, {note, len: dot}],
+    h: [{note, len: dot}, {note, len: dot}, {note, len: dot}, {note, len: dot}],
+    i: [{note, len: dot}, {note, len: dot}],
+    j: [{note, len: dot}, {note, len: dash}, {note, len: dash}, {note, len: dash}],
+    k: [{note, len: dash}, {note, len: dot}, {note, len: dash}],
+    l: [{note, len: dot}, {note, len: dash}, {note, len: dot}, {note, len: dot}],
+    m: [{note, len: dash}, {note, len: dash}],
+    n: [{note, len: dash}, {note, len: dot}],
+    o: [{note, len: dash}, {note, len: dash}, {note, len: dash}],
+    p: [{note, len: dot}, {note, len: dash}, {note, len: dash}, {note, len: dot}],
+    q: [{note, len: dash}, {note, len: dash}, {note, len: dot}, {note, len: dash}],
+    r: [{note, len: dot}, {note, len: dash}, {note, len: dot}],
+    s: [{note, len: dot}, {note, len: dot}, {note, len: dot}],
+    t: [{note, len: dash}],
+    u: [{note, len: dot}, {note, len: dot}, {note, len: dash}],
+    v: [{note, len: dot}, {note, len: dot}, {note, len: dot}, {note, len: dash}],
+    w: [{note, len: dot}, {note, len: dash}, {note, len: dash}],
+    x: [{note, len: dash}, {note, len: dot}, {note, len: dot}, {note, len: dash}],
+    y: [{note, len: dash}, {note, len: dot}, {note, len: dash}, {note, len: dash}],
+    z: [{note, len: dash}, {note, len: dash}, {note, len: dot}, {note, len: dot}],
+    one: [{note, len: dot}, {note, len: dash}, {note, len: dash}, {note, len: dash}, {note, len: dash}],
+    two: [{note, len: dot}, {note, len: dot}, {note, len: dash}, {note, len: dash}, {note, len: dash}],
+    three: [{note, len: dot}, {note, len: dot}, {note, len: dot}, {note, len: dash}, {note, len: dash}],
+    four: [{note, len: dot}, {note, len: dot}, {note, len: dot}, {note, len: dot}, {note, len: dash}],
+    five: [{note, len: dot}, {note, len: dot}, {note, len: dot}, {note, len: dot}, {note, len: dot}],
+    six: [{note, len: dash}, {note, len: dot}, {note, len: dot}, {note, len: dot}, {note, len: dot}],
+    seven: [{note, len: dash}, {note, len: dash}, {note, len: dot}, {note, len: dot}, {note, len: dot}],
+    eight: [{note, len: dash}, {note, len: dash}, {note, len: dash}, {note, len: dot}, {note, len: dot}],
+    nine: [{note, len: dash}, {note, len: dash}, {note, len: dash}, {note, len: dash}, {note, len: dot}],
+    zero: [{note, len: dash}, {note, len: dash}, {note, len: dash}, {note, len: dash}, {note, len: dash}],
+    space: [{note: spaceNote, len: spaceLen}],
+    endLetter: [{note: spaceNote, len: endLetterLen}]
 };
 
 function characterToMorse(character) {
@@ -68,17 +75,26 @@ function characterToMorse(character) {
     }
 };
 
-function sentenceToMorse(sentence) {
-    let MorseForm = [];
-    sentence.forEach(word => {
-        for(let i = 0; i < word.length; i++) {
-            MorseForm.push({character: word[i], code: characterToMorse(word[i])});
+let MorseActions = {
+    sentenceToMorse: function(sentence) {
+        let MorseForm = [];
+        sentence.forEach(word => {
+            for(let i = 0; i < word.length; i++) {
+                MorseForm.push({character: word[i], code: characterToMorse(word[i])});
+                MorseForm.push({character: '', code: Morse.endLetter});
+            };
+            MorseForm.push({character: ' ', code: characterToMorse(' ')});
             MorseForm.push({character: '', code: Morse.endLetter});
-        };
-        MorseForm.push({character: ' ', code: characterToMorse(' ')});
-        MorseForm.push({character: '', code: Morse.endLetter});
-    });
-    return MorseForm;
+        });
+        return MorseForm;
+    },
+
+    codeLengths: {
+        dot,
+        dash,
+        space: spaceLen,
+        endLetter: endLetterLen,
+    },
 };
 
-export default sentenceToMorse;
+export default MorseActions;

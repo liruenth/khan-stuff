@@ -6,7 +6,6 @@
   display: table;
   width: 100%;
   box-sizing: border-box;
-
 }
 
 .line > div {
@@ -19,5 +18,23 @@
 }
 
 button {
+  margin: 5px;
+}
+
+textarea {
+  width: 70%;
+  font-size: 32px;
+  height: 80px;
+}
+
+.increment {
+  width: 100px;
+  font-size: 32px;
+}
+
+.largeLabel {
+  font-size: 32px;
+  font-style: bold;
+  background-color: rgb(220, 220, 220);
   margin: 5px;
 }
