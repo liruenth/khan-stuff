@@ -60,9 +60,16 @@ class morsePage extends React.Component {
 
     stopSound = () => {
         stopMusic();
+        this.clearAllTimers();
+    }
+    clearAllTimers() {
+        for (var i = setTimeout(function() {}, 0); i > 0; i--) {
+          window.clearTimeout(i);
+        }
     }
 
     playSound = () => {
+        this.stopSound();
         let nl = [];
         if (this.state.noteList.length === 0) {
             this.state.morse.map((character, i) => {
@@ -80,10 +87,11 @@ class morsePage extends React.Component {
             currentCode: {char: 0, code: 0}
         })
 
-        var delayNext = 0;
+        var delayNext = 1;
         for (var i = 0; i < nl.length; i++) {
-            setTimeout(this.displayCurrentCode, delayNext * 1000 * ( 60 / this.state.tempo ), nl.charNum);
-            delayNext += nl.len;
+            setTimeout(this.displayCurrentCode, delayNext * 1000 * ( 60 / this.state.tempo ), nl[i].charNum);
+            delayNext += nl[i].len;
+            
         }
 
         playMusic(nl, this.state.tempo, this.displayCurrentCode);
@@ -104,9 +112,10 @@ class morsePage extends React.Component {
             </header>
             <div className="line">
                 {
-                    this.state.morse.map(morse => {
+                    this.state.morse.map((morse, i) => {
                         num++;
-                        return <MorseChar shown={this.state.allShown} key={num} code={morse.code} character={morse.character} />
+                        return <MorseChar shown={this.state.allShown} key={num} code={morse.code} character={morse.character}
+                            highlight={this.state.currentCode.char === i} codeNum={this.state.currentCode.code} />
                     })
                 }
             </div>

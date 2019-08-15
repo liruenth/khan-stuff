@@ -3,30 +3,27 @@ import './../styles/Code.css';
 import MorseActions from './../actions/morse.js';
 
 let codeLengths = MorseActions.codeLengths;
-/*
-For sound my plan is
-stacatto = 0.5 for the rest after each dot and dash
-*/
 
 class MorseCode extends React.Component {
 
-    renderCode = (code) => {
+    renderCode = (code, highlight) => {
         let divCode;
+        let highlightClassName = highlight ? 'highlight' : '';
         switch(code.len) {
             case codeLengths.space:
-                divCode = <div className='space'></div>
+                divCode = <div className={`space ${highlightClassName}`}></div>
                 break;
             case codeLengths.endLetter:
-                divCode = <div className='endLetter'></div>
+                divCode = <div className={`endLetter ${highlightClassName}`}></div>
                 break;
             case codeLengths.dash:
-                divCode = <div className='dash'></div>
+                divCode = <div className={`dash ${highlightClassName}`}></div>
                 break;
             case codeLengths.dot:
-                divCode = <div className='circle'></div>
+                divCode = <div className={`circle ${highlightClassName}`}></div>
                 break;
             default:
-                divCode = <div className='space'></div>
+                divCode = <div className={`space ${highlightClassName}`}></div>
                 break;
         }
         return divCode;
@@ -35,7 +32,7 @@ class MorseCode extends React.Component {
     render(props) {
         return (
             <div className='code' key={this.props.id} >
-                {this.renderCode(this.props.code)}
+                {this.renderCode(this.props.code, this.props.highlight)}
             </div>
         );
     }

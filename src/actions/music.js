@@ -57,8 +57,6 @@ let generateSequence = function(noteList, tempo) {
 	noteList.map(note => {
 		notes.push(`${note.note} ${note.len}`);
 	});
-	console.log('notes')
-	console.log(notes);
 	let sequence = new TinyMusic.Sequence(ac, tempo, notes);
 	sequence.loop = false;
 	sequence.staccato = 0.5
